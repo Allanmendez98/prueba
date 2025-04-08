@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import styles from './Accionistas.module.css'; // Using CSS Modules
 import Image from 'next/image';
 
-// Import images - make sure to place them in the public folder or configure your loader
+// Import images
 import user1 from '../../app/assets/image/Perfil.jpg';
 import user2 from '../../app/assets/image/Perfil1.png';
 
 function Accionistas() {
-  // Sample shareholder data
   const [accionistas, setAccionistas] = useState([
     {
       id: 1,
@@ -33,10 +31,8 @@ function Accionistas() {
       porcentaje: 8.7,
       seguido: false
     },
-    // You can add more shareholders here
   ]);
 
-  // Function to handle follow button
   const handleSeguir = (id) => {
     setAccionistas(accionistas.map(accionista => 
       accionista.id === id 
@@ -46,50 +42,55 @@ function Accionistas() {
   };
 
   return (
-    <div className={styles.accionistasContainer}>
-      <h1>Lista de Accionistas</h1>
+    <div className="max-w-4xl mx-auto p-6 font-sans">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Lista de Accionistas</h1>
       
-      <div className={styles.accionistasTableContainer}>
-        <table className={styles.accionistasTable}>
+      <div className="overflow-x-auto shadow-md rounded-lg">
+        <table className="w-full min-w-[600px]">
           <thead>
-            <tr>
-              <th>Accionista</th>
-              <th>Porcentaje</th>
-              <th>Acciones</th>
+            <tr className="bg-[#253b4a] text-white">
+              <th className="px-4 py-3 text-left">Accionista</th>
+              <th className="px-4 py-3 text-left">Porcentaje</th>
+              <th className="px-4 py-3 text-left">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {accionistas.map(accionista => (
-              <tr key={accionista.id}>
-                <td className={styles.accionistaInfo}>
-                  <div className={styles.accionistaAvatar}>
-                    <Image 
-                      src={accionista.imagen} 
-                      alt={`${accionista.nombre} ${accionista.apellido}`}
-                      width={40}
-                      height={40}
-                      className={styles.avatarImage}
-                    />
-                  </div>
-                  <div className={styles.accionistaNombre}>
-                    <span className={styles.nombreCompleto}>
+              <tr key={accionista.id} className="border-b border-gray-200 hover:bg-gray-50">
+                <td className="px-4 py-3">
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                      <Image 
+                        src={accionista.imagen} 
+                        alt={`${accionista.nombre} ${accionista.apellido}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <span className="font-semibold text-gray-800">
                       {accionista.nombre} {accionista.apellido}
                     </span>
                   </div>
                 </td>
-                <td className={styles.porcentaje}>
+                <td className="px-4 py-3 font-mono text-[#253b4a] text-lg">
                   {accionista.porcentaje}%
                 </td>
-                <td className={styles.acciones}>
-                  <button 
-                    className={`${styles.seguirBtn} ${accionista.seguido ? styles.siguiendo : ''}`}
-                    onClick={() => handleSeguir(accionista.id)}
-                  >
-                    {accionista.seguido ? 'Siguiendo' : 'Seguir'}
-                  </button>
-                  <button className={styles.verPerfilBtn}>
-                    Ver Perfil
-                  </button>
+                <td className="px-4 py-3">
+                  <div className="flex gap-2">
+                    <button 
+                      className={`px-4 py-2 rounded-full font-medium transition-all ${
+                        accionista.seguido 
+                          ? 'bg-green-600 text-white hover:bg-green-700' 
+                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleSeguir(accionista.id)}
+                    >
+                      {accionista.seguido ? 'Siguiendo' : 'Seguir'}
+                    </button>
+                    <button className="px-4 py-2 rounded-full bg-[#253b4a] text-white font-medium hover:bg-[#1a2d3a] transition-all">
+                      Ver Perfil
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
