@@ -50,11 +50,12 @@
   align-items: center;
   font-size: 12px;
   border: 2px solid #00000036;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .changeCoverBtn:hover {
   background: rgb(170, 170, 170);
+  transform: translateY(-2px);
 }
 
 .changePhotoIcon {
@@ -112,11 +113,12 @@
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .changeProfileBtn:hover {
   background: rgb(170, 170, 170);
+  transform: translateY(-2px);
 }
 
 /* ====== INFORMACIÓN PRINCIPAL ====== */
@@ -140,10 +142,31 @@
   color: #050505;
 }
 
+.updateInfoBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.updateInfoBtn:hover {
+  color: #253b4a;
+  transform: scale(1.1);
+}
+
 .profileRoles {
   margin-top: 5px;
   font-size: 16px;
   color: #666;
+}
+
+.roleTitle {
+  font-weight: bold;
+}
+
+.roleValue {
+  margin-left: 5px;
 }
 
 .profileDescription {
@@ -155,38 +178,65 @@
   overflow: visible;
 }
 
+/* ====== BOTONES DE ACCIÓN ====== */
 .profileButtonsRow {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .actionBtn {
   border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
+  border-radius: 20px;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 0.85rem;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.actionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .primaryBtn {
-  background: #1877f2;
+  background: #253b4a;
   color: white;
 }
 
 .primaryBtn:hover {
-  background: #165dd0;
+  background: #1a2d3a;
 }
 
 .secondaryBtn {
-  background: #e4e6eb;
-  color: #050505;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
 }
 
 .secondaryBtn:hover {
-  background: #d8dce3;
+  background: #e0e0e0;
+}
+
+/* ====== BOTÓN DE CERRAR SESIÓN ====== */
+.logoutBtn {
+  background: #dc3545 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.logoutBtn:hover {
+  background: #c82333 !important;
+}
+
+.logoutIcon {
+  margin-right: 8px;
+  font-size: 0.9rem;
 }
 
 .penIcon {
@@ -217,10 +267,16 @@
 
   .profileName {
     font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .profileNameRow {
+    justify-content: center;
   }
 
   .profileRoles {
     font-size: 0.9rem;
+    text-align: center;
   }
 
   .profileDescription {
@@ -234,10 +290,16 @@
   }
 }
 
-.rightColumn {
-  width: 29vw;
-  overflow: auto;
-  white-space: normal;
+@media (max-width: 480px) {
+  .profileContainer {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  
+  .actionBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
 }
 
 /* Estilos adicionales para Next.js */

@@ -1,5 +1,5 @@
 "use client";
-import './globals.css'; // Aquí se importa los estilos globales
+
 import { FunctionCard } from "@/components/cards/FunctionCard";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";

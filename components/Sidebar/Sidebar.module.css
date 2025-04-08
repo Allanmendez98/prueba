@@ -1,74 +1,20 @@
-/* Sidebar.module.css */
+/* Solo mantenemos estilos que no se pueden hacer fácilmente con Tailwind */
 
-/* Contenedor principal de tabs */
-.sidebar {
-  background: rgb(37 70 106);
-  padding: 0 10px;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-}
-
-/* Lista de tabs */
-.sidebarList {
-  display: inline-flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 100%;
-  gap: 5px;
-}
-
-/* Items de cada tab */
-.sidebarItem {
-  margin: 0;
-  flex-shrink: 0;
-}
-
-/* Estilo de los tabs */
-.sidebarLink {
-  color: white !important;
-  text-decoration: none;
-  display: inline-block;
-  padding: 12px 15px;
-  border-radius: 4px 4px 0 0;
-  background: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-/* Efecto hover y active */
+/* Efecto hover y active - mantenemos estos estilos por la especificidad */
 .sidebarLink:hover,
 .activeLink {
-  background: rgb(55, 90, 130);
+  background: rgb(54, 61, 70);
   border-bottom: 3px solid #4CAF50;
+  border-radius: 10%;
 }
 
 .activeLink {
-  background: rgb(55, 90, 130) !important;
+  background: rgb(54, 61, 70) !important;
   font-weight: bold;
+  border-radius: 10%;
 }
 
-/* Media queries para móviles */
-@media (max-width: 768px) {
-  .sidebarList {
-    gap: 0;
-    overflow-x: auto;
-  }
-  
-  .sidebar {
-    padding: 0 5px;
-    width: auto;
-  }
-  
-  .sidebarLink {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-}
-
-/* Estilo para scrollbar */
+/* Estilo para scrollbar - difícil de hacer con Tailwind */
 .sidebar::-webkit-scrollbar {
   height: 4px;
 }

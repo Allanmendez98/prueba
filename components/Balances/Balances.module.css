@@ -1,0 +1,147 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainTitle {
+  color: #253b4a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.yearSelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.yearButton {
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #333;
+  font-size: 14px;
+}
+
+.yearButton:hover {
+  background-color: #e0e0e0;
+}
+
+.yearButton.active {
+  background-color: #253b4a;
+  color: white;
+  border-color: #253b4a;
+}
+
+.statementTitle {
+  color: #253b4a;
+  margin: 25px 0 15px;
+  text-align: center;
+}
+
+.statementTable {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tableHeader {
+  display: flex;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.incomeHeader, .expensesHeader {
+  flex: 1;
+  padding: 12px 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.incomeHeader {
+  border-right: 1px solid #ddd;
+  color: #2E7D32;
+}
+
+.expensesHeader {
+  color: #C62828;
+}
+
+.tableBody {
+  display: flex;
+}
+
+.tableColumn {
+  flex: 1;
+}
+
+.tableColumn:first-child {
+  border-right: 1px solid #ddd;
+}
+
+.tableRow {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.monthCell, .expenseCell, .totalCell {
+  flex: 2;
+  padding: 10px 15px;
+}
+
+.amountCell {
+  flex: 1;
+  padding: 10px 15px;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.totalRow {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.totalCell {
+  font-weight: bold;
+}
+
+.netProfit {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 16px;
+  padding: 12px 15px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.profitAmount {
+  font-weight: bold;
+  color: #2E7D32;
+}
+
+@media (max-width: 768px) {
+  .statementTable {
+    font-size: 14px;
+  }
+  
+  .monthCell, .expenseCell, .totalCell, .amountCell {
+    padding: 8px 10px;
+  }
+  
+  .netProfit {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

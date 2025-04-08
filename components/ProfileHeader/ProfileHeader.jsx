@@ -1,22 +1,28 @@
 "use client"; // Necesario para componentes que usan hooks y eventos
 
-import styles from "./ProfileHeader.module.css"; // Recomiendo usar CSS Modules
+import styles from "./ProfileHeader.module.css";
 import { useRouter } from "next/navigation";
-import { FaPen, FaCamera } from "react-icons/fa";
+import { FaPen, FaCamera, FaSignOutAlt } from "react-icons/fa";
 
-// Importar imágenes - Asegúrate de que estas rutas son correctas
-import coverPhoto from "../../app/assets/image/Banco.jpg"; // Ajusta la ruta según tu estructura
-import profilePhoto from "../../app/assets/image/Perfil1.png"; // Ajusta la ruta según tu estructura
+// Importar imágenes
+import coverPhoto from "../../app/assets/image/Banco.jpg";
+import profilePhoto from "../../app/assets/image/Perfil1.png";
 
 function ProfileHeader() {
-  const router = useRouter(); // Next.js usa useRouter en lugar de useNavigate
+  const router = useRouter();
+
+  const handleLogout = () => {
+    // Aquí puedes agregar lógica para cerrar sesión (limpiar tokens, etc.)
+    // antes de redirigir
+    router.push("/"); // Redirige al home público
+  };
 
   return (
     <div className={styles.profileContainer}>
       {/* Portada */}
       <div className={styles.coverPhotoContainer}>
         <img 
-          src={coverPhoto.src} // Next.js maneja imágenes estáticas así
+          src={coverPhoto.src}
           alt="Cover" 
           className={styles.coverPhoto} 
         />
@@ -78,6 +84,12 @@ function ProfileHeader() {
               </button>
               <button className={`${styles.actionBtn} ${styles.secondaryBtn}`}>
                 Seguir
+              </button>
+              <button 
+                className={`${styles.actionBtn} ${styles.logoutBtn}`}
+                onClick={handleLogout}
+              >
+                <FaSignOutAlt className={styles.logoutIcon} /> Cerrar sesión
               </button>
             </div>
           </div>
